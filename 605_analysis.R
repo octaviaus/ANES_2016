@@ -153,6 +153,13 @@ fviz_pca_ind(switch_pca_1, geom=c("point"),
              #col.ind="contrib",  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
              # label=wine.class,
              repel = TRUE)
+fviz_pca_ind(switch_pca_1,axes = c(1, 2),label="none",
+             addEllipses = TRUE, ellipse.type="norm",ellipse.level=0.9,
+             habillage = as.factor(label_switch),palette = "jco",
+             mean.point=F)
+
+
+
 
 switch_pca_2=PCA(data_2[-which(data_2$VCF0734==1|data_2$VCF0734==9),-which(names(data_2)%in%"VCF0734")],scale.unit=1,ncp=5,graph=T)
 fviz_eig(switch_pca_2,addlabels=TRUE)
@@ -168,3 +175,7 @@ fviz_pca_ind(switch_pca_2, geom=c("point"),
              #col.ind="contrib",  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
              # label=wine.class,
              repel = TRUE)
+fviz_pca_ind(switch_pca_2,axes = c(1, 2),label="none",
+             addEllipses = TRUE, ellipse.type="norm",ellipse.level=0.9,
+             habillage = as.factor(label_switch_2),palette = "jco",
+             mean.point=F)
